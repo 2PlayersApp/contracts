@@ -15,8 +15,8 @@ contract TwoPlayersLogicScript is Script {
     MockVRFCoordinatorV2 public VRF;
     TwoPlayersLogic public tpc;
 
-    address CREATOR = 0x58ad0fb63b45Db3D7028Abbb64d23eb9A4eC448A;
-    uint256 TIME = 60;
+    address CREATOR = 0x094219B1b714c4D211D45992b774accA209f9b82;
+    uint256 TIME = 300;
     bytes32 keyHash = 0x0;
 
     function setUp() public {
