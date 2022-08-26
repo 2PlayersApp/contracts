@@ -156,7 +156,7 @@ contract TwoPlayersLogic is VRFConsumerBaseV2 {
     ) public view returns(address, uint256) {
         Game memory game = games[name_][room_][id_];
         address player;
-        uint256 sec;
+        uint256 sec = (game.time2 + time) - block.timestamp;
 
         if (move_ != 0) {
             bytes32 cipher = getCipher(move_, proof_);
@@ -164,8 +164,6 @@ contract TwoPlayersLogic is VRFConsumerBaseV2 {
         } else {
             if (block.timestamp >= game.time2 + time) {
                 player = game.player2;
-            } else {
-                sec = (game.time2 + time) - block.timestamp;
             }
             return (player, sec);
         }
